@@ -30,7 +30,8 @@ foreach ($urls as $url) {
 
 $emailData = "<h3>Expiring SSL Domains</h3><table style='border: 1px solid;border-collapse: collapse;border-color:#96D4D4;'><thead><tr><th style='border: 1px solid;border-collapse: collapse;border-color:#96D4D4;'>Sr.No.</th><th style='border: 1px solid;border-collapse: collapse;border-color:#96D4D4;'>Domain Name</th><th style='border: 1px solid;border-collapse: collapse;border-color:#96D4D4;' >Expiry Date</th><th style='border: 1px solid;border-collapse: collapse;border-color:#96D4D4;'>Days Left</th></tr></thead><tbody>";
 
-$countOfDomainExpiry = count($answer);
+$countOfDomainExpiry = empty($answer) ? 0 : count($answer);
+
 if (empty($answer)) {
     $task->log("All Good: No SSL is expiring");
 } else {
