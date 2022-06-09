@@ -11,6 +11,7 @@ $task = new Tasks();
 $urls = explode(',', $_ENV['DOMAINS']);
 $now = new DateTime();
 
+$task->log("Started: SSL Expiry Script");
 
 foreach ($urls as $url) {
     $orignal_parse = parse_url("https://" . $url, PHP_URL_HOST);
@@ -34,12 +35,16 @@ if (empty($answer)) {
     $task->log("All Good: No SSL is expiring");
 } else {
     $count = 1;
+    $task->log($countOfDomainExpiry . " SSL Expiring");
     foreach ($answer as $domain) {
         $expiryDate = $domain[1]->format('d-m-Y H:i:s');
+        $task->log($domain[0]);
         $emailData .= "<tr><td>$count</td><td>$domain[0]</td><td>$expiryDate</td><td>$domain[2]</td></tr>";
         $count = $count + 1;
     }
     $emailData .= "</tbody></table>";
     $task->sendEmails("Urgent: " . $countOfDomainExpiry . " SSL Expiring", $emailData);
+    $task->log("Email sent successfully");
+    $task->log("End: SSL Expiry Script");
 }
 
