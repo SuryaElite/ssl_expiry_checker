@@ -1,11 +1,11 @@
 {
-    "require": {
-        "vlucas/phpdotenv": "^5.4",
-        "symfony/mailer": "^6.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Ssl\\" : "src"
-        }
+  "require": {
+    "vlucas/phpdotenv": "^5.4",
+    "symfony/mailer": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ssl\\": "src"
     }
+  }
 }

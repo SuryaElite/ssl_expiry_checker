@@ -35,11 +35,11 @@ if (empty($answer)) {
 } else {
     $count = 1;
     foreach ($answer as $domain) {
-        $expirydate = $domain[1]->format('d-m-Y H:i:s');
-        $emailData .= "<tr><td>$count</td><td>$domain[0]</td><td>$expirydate</td><td>$domain[2]</td></tr>";
-        $count = $count+1;
+        $expiryDate = $domain[1]->format('d-m-Y H:i:s');
+        $emailData .= "<tr><td>$count</td><td>$domain[0]</td><td>$expiryDate</td><td>$domain[2]</td></tr>";
+        $count = $count + 1;
     }
     $emailData .= "</tbody></table>";
-    $task->sendEmails("Urgent: ". $countOfDomainExpiry . " SSL Expiring", $emailData);
+    $task->sendEmails("Urgent: " . $countOfDomainExpiry . " SSL Expiring", $emailData);
 }
 
