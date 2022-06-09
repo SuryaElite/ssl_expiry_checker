@@ -18,12 +18,10 @@ $ cd ssl_expiry_checker
 $ composer install
 ```
 
-- Copy DomainNamesList.sample.php to DomainNamesList.php and add the domain names, without https://
-- Copy Email.sample.php to Email.php
+- Copy .env.sample to .env and add the details.
 
 ```sh
-$ cp src/Config/DomainNamesList.sample.php DomainNamesList.php
-$ cp src/Config/Email.sample.php src/Config/Email.php
+$ cp .env.sample .env
 ```
 
 ### Usages
