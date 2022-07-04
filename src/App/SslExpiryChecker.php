@@ -22,6 +22,8 @@ foreach ($urls as $url) {
 
     $valid_to = new DateTime(date(DATE_RFC2822, $certinfo['validTo_time_t']));
     $expiring_in_days = $valid_to->diff($now)->days;
+    
+    echo $url . " is expiring on " . $valid_to->format('d-m-Y H:i:s') . PHP_EOL;
 
     echo $url . " is expiring on " . $valid_to->format('d-m-Y H:i:s') . PHP_EOL;
 
